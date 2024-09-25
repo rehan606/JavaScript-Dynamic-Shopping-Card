@@ -175,7 +175,7 @@ function productDisplay(){
                     
                     <div class="flex justify-between gap-1">
                         <button class="btn bg-[#d16527] w-40">Buy Now</button>
-                        <button onclick=" addToCart() " class="btn bg-[#010a5e] w-40">Add To Cart</button>
+                        <button onclick=" addToCart('${item.name}', ${item.details.price} ) " class="btn bg-[#010a5e] w-40">Add To Cart</button>
                     </div>
                 </div>
             </div>
@@ -187,4 +187,18 @@ productDisplay()
 
 
 // Add to Cart Function
+let cartCount = 0
+let totalPrice = 0
+function addToCart(name, price, ){
+    cartCount ++
+    totalPrice = totalPrice + price
+    
+    const cartItemCount = document.getElementById('cartItem')
+    const itemCountNumber = document.getElementById('cart-dropDown')
+    const subTotal = document.getElementById('sub-total')
 
+    cartItemCount.innerText = cartCount
+    itemCountNumber.innerText = cartCount
+    subTotal.innerText = totalPrice
+
+}
